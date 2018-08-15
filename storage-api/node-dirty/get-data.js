@@ -6,6 +6,7 @@ var db = dirty('./storage/dirty/storage.db');
 
 db.on('load', () => {
     keys.forEach(key => {
+        db.get(key);
         // console.log(db.get(key));
     })
 });

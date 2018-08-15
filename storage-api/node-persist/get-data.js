@@ -14,7 +14,9 @@ storage.init({
     forgiveParseErrors: false
 }).then(()=>{
     keys.forEach(key => {
-        // storage.getItem(key).then(console.log);
+        storage.getItem(key).then((item) => {
+            // console.log(item);
+        });
     })
 }).catch(error => {
     console.log(error);
