@@ -1,0 +1,6 @@
+# storage folders
+storage/dirty/storage.db
+storage/nedb
+storage/node-persist
+
+node_modules
