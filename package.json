@@ -19,6 +19,7 @@
   "dependencies": {
     "cli-chart": "^0.3.1",
     "cli-table": "^0.3.1",
+    "data-store": "^3.0.3",
     "dirty": "^1.1.0",
     "lowdb": "^1.0.0",
     "nedb": "^1.8.0",

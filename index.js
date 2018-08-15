@@ -41,6 +41,15 @@ let taskMap = [{
 }, {
     name: 'node-persist Read',
     script: './storage-api/node-persist/get-data.js'
+}, {
+    name: 'data-store Write',
+    script: './storage-api/data-store/insert-data.js'
+}, {
+    name: 'data-store Load',
+    script: './storage-api/data-store/initialize.js'
+}, {
+    name: 'data-store Read',
+    script: './storage-api/data-store/get-data.js'
 }]
 
 let i = 0;
@@ -58,7 +67,15 @@ let executeNextScript = () => {
     } else {
         displayTable(taskMap);
         displayChart(taskMap);
-        process.exit();
+
+        console.log('\n\n');
+        forkChild('neDB Memory Usage', './storage-api/nedb/memory-usage.js').then(() => {
+            forkChild('node-dirty Memory Usage', './storage-api/node-dirty/memory-usage.js').then(() => {
+                forkChild('node-persist Memory Usage', './storage-api/node-persist/memory-usage.js').then(() => {
+                    forkChild('data-store Memory Usage', './storage-api/data-store/memory-usage.js').then(process.exit);
+                })
+            }) 
+        })
     }
 }
 

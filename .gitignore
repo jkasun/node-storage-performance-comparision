@@ -2,5 +2,6 @@
 storage/dirty/storage.db
 storage/nedb
 storage/node-persist
+storage/data-store
 
 node_modules
